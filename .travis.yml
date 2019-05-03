@@ -4,7 +4,7 @@ env:
   - MYCONDAPY=3.6
   - MYCONDAPY=3.7
   global:
-#   travis encrypt 
+#   travis encrypt
 #   PYPI_PASSWD=xxxx
 #   GITHUB_TOKEN=xxx
 #   ANACONDA_TOKEN=xxx
@@ -17,6 +17,7 @@ env:
     - PYPI_LOGIN=jianlins
 
 
+# test trigger build
 ####
 # EVERYTHING BELOW THIS LINE WILL BE COPIED INTO OTHER YMLs
 ####

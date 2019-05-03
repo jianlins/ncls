@@ -7,7 +7,7 @@ cimport cython
 from libc.stdint cimport int32_t
 # from cython.stdint import int32
 
-cimport ncls.src.cncls32 as cn
+cimport nclsx.src.cncls32 as cn
 
 from libc.stdlib cimport malloc
 import numpy as np

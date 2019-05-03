@@ -1,5 +1,5 @@
 
-from ncls import NCLS
+from nclsx import NCLS
 
 from numpy.random import randint
 import numpy as np

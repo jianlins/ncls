@@ -1,5 +1,5 @@
 import pandas as pd
-from ncls import NCLS
+from nclsx import NCLS
 
 d = pd.read_table("../gencode.v28.annotation.gtf.gz", usecols=[0, 3, 4], header=None, comment="#", names="Chromosome Start End".split(),  dtype={"Chromosome": "category"})
 

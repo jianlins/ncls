@@ -1,4 +1,4 @@
-from ncls import NCLS
+from nclsx import NCLS
 
 import numpy as np
 

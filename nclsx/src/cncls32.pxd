@@ -26,7 +26,7 @@ cdef extern from "stdio.h":
   char *fgets(char *str,int size,FILE *ifile)
 
 
-cdef extern from "ncls/src/intervaldb32.h":
+cdef extern from "nclsx/src/intervaldb32.h":
     ctypedef struct IntervalMap:
         int32_t start
         int32_t end

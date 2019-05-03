@@ -1,6 +1,10 @@
-# Nested containment list
+# Nested containment list (extension)
 
 [![Build Status](https://travis-ci.org/hunt-genes/ncls.svg?branch=master)](https://travis-ci.org/hunt-genes/ncls) [![PyPI version](https://badge.fury.io/py/ncls.svg)](https://badge.fury.io/py/ncls)
+
+This is an extended version of NCLS (Nested Containment List, https://github.com/hunt-genes/ncls), which allows appending intervals and build 
+afterwards. So that you don't need to maintain a list outside NCLS on your own to implement the same functions. 
+
 
 The Nested Containment List is a datastructure for interval overlap queries,
 like the interval tree. It is usually an order of magnitude faster than the
@@ -19,14 +23,14 @@ Paper: https://academic.oup.com/bioinformatics/article/23/11/1386/199545
 ## Install
 
 ```
-pip install ncls
+pip install nclsx
 ```
 
 ## Usage
 
 ```python
 # see the examples/ folder for more examples
-from ncls import NCLS
+from nclsx import NCLS
 
 import pandas as pd
 
@@ -57,6 +61,39 @@ intervals = ncls.intervals()
 intervals
 # [(0, 100, 0), (1, 101, 1), (2, 102, 2), (3, 103, 3), (4, 104, 4)]
 ```
+
+## Alternative usage
+
+```python
+from nclsx import NCLS
+import numpy as np
+ncls = NCLS()
+
+ncls.append(1,2,1)
+ncls.append(3,4,3)
+ncls.append(5,7,5)
+
+ncls.build()
+
+starts2 = np.array([1,7])
+ends2 = np.array([2,8])
+indexes2 = np.array([11,22])
+
+
+print(ncls.intervals())
+# [(1, 2, 1), (3, 4, 3), (5, 7, 5)]
+
+print(ncls.has_overlaps(starts2, ends2, indexes2))
+# [11] 
+
+for i in ncls.find_overlap(1,4):
+    print(i)
+# (1, 2, 1)
+# (3, 4, 3)
+
+
+```
+
 
 ## Benchmark
 

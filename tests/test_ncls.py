@@ -1,5 +1,5 @@
 
-from ncls import NCLS
+from nclsx import NCLS
 import pandas as pd
 
 import numpy as np

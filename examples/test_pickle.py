@@ -1,6 +1,6 @@
 
 
-from ncls import NCLS
+from nclsx import NCLS
 
 import pickle
 import pandas as pd

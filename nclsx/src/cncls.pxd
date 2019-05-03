@@ -37,7 +37,7 @@ cdef extern from "stdio.h":
 #   char *strcat(char *,char *)
 
 
-cdef extern from "ncls/src/intervaldb.h":
+cdef extern from "nclsx/src/intervaldb.h":
     ctypedef struct IntervalMap:
         int start
         int end
@@ -96,7 +96,7 @@ cdef extern from "ncls/src/intervaldb.h":
     # int text_file_to_binaries(FILE *infile,char buildpath[],char err_msg[])
     # int C_int_max
 
-# cdef extern from "ncls/src/utarray.h":
+# cdef extern from "nclsx/src/utarray.h":
 
 #     ctypedef struct UT_icd:
 #         pass
@@ -121,7 +121,7 @@ cdef extern from "ncls/src/intervaldb.h":
 #     cdef SublistHeader *subheader
 
 
-# cdef extern from "ncls/src/utarray.h":
+# cdef extern from "nclsx/src/utarray.h":
 
 #     ctypedef struct UT_icd:
 #         pass

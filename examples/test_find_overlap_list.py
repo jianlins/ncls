@@ -1,10 +1,9 @@
 
 
 
-from ncls import NCLS
+from nclsx import NCLS
 
 import pickle
-import pandas as pd
 import numpy as np
 
 # starts = np.random.randint(0, int(1e8), int(1e3))

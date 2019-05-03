@@ -1,9 +1,227 @@
-language: python
-python:
-  - "3.6"
-install:
-  - pip install cython
-  - python setup.py install
+env:
+  matrix:
+  - MYCONDAPY=2.7
+  - MYCONDAPY=3.6
+  - MYCONDAPY=3.7
+  global:
+#   travis encrypt 
+#   PYPI_PASSWD=xxxx
+#   GITHUB_TOKEN=xxx
+#   ANACONDA_TOKEN=xxx
+    - secure: QYoKC/dqSV0qKXBLX6/9gZvQG6h7L0aJOBeHIx2MGb4k8DbuIg50/KBFZE/qyBr8NwrWxwAA8g1rRHk4ab8pb0wrQwAHoU9EwXpy5ARUl7L7ovHzC6l+C4EVJniymxb2v4fQfPDC7CZwPjTAWAVHwIdtbPsf0DMKLtVmeDtLGSoyDQq3p1SscTBmMuTkrJw9zs1Cq58Zrz73ZrwgR+ecLLnOjHiKTatphub0/vi4946S9EO5EYPIetSv77CAzfq5TuzASKf+ghCnIpwP6AaYr5rbWl+KFIthcegCfjZsiLXAt+PKADvRqq5a00geEV+CClDq+xVg6dpY6tnkuh0/vtGXMzljROn+8foMA+jzsz5oNn9RZI78KPo/k5jDSIi+DdYpT/pksm+nZsef2TUULhynqDj5S5/A7soud86WHlr/g/dTOd2+vta7lLZxcdCFH19OlTlEkkVY4v91GqKVX9lOp8HdedhHdPhfFuP4gx8wekjcuGgoxDCGE9pIIUnvECAYyX7oAd8moq6RpnDXrk7XSTfKDkiVHthZCqAVZOZegh4KQmHQkHM79HuVWlo9J/1WSRoS67EZMgiY1dIpjU6b1+KtSfu5RRcBC5du7tDzfldHqZAXmSowlF7xDqknq3tTuykcLxGquoGp9nk0wlEm/Iv+lCVPKsfQV3cKtew=
+    - secure: FOKow2NkNM8NkxFn+Y3YTv+deGOcr6/LI3Y+HymJlYpTlcGTcGVHi0JlI1udSjvNU4PJmJVB715tikZ6q6ldZrbLj0N7FVCldy3WhBwUKcttbwnekv0e6Iu2sKhZH8aXAqlHOKBGG8l7bcUV8OiNHLkizRgfuwLdJCW9QccGt91o7xvvtHclzHt9300U2nD59iNhKlZbyZfnGUj9AmsAD82GZ4B7L++GRGm9ORGKEFWaAR3N1glaR3Vrpypt4WKpehG+3PjD1FuUuBRWBZwWgMGElUFypRfsslGnr9n9NAxlea/GBExqR4xoO6cvta+f9ExKJHo39Jb/YSsX/4sMwpt4EQDFDaDBAFRZOZxXfcrHUx7+Ti+JcYtZWMpyHuFxS+LsZ5n4vD1sE4pzLZSRiTN1zDNG9qlDiWGZGKsO6zadWRdZjDOltFbHXUd6+NkMQu23R0ZjlUibKjCDGMFlxMDcR5KD85gICqmO4yFTIyHLkAq/1LhOPYy5UtYTWhdkcZBveTNFUI4uuzZ/MmymJb5Nqc1P5xgoIkKo9ZJwymU7XU4nA8B9izwAz6Ab0ZAh5tnn9JDRNN8e3YpsApxdAhtV1vnGDVZyPqeSH2Mu7v/BFUEZb4Rj0uOWhT+IrvLTp24v5AA7EmN6cCTBW/RaGsfPKgNB56FVZ6lkFaoMhfI=
+    - secure: DT104x5e87esT9ZQKNTFwPzOr4QOyRqEXAXLswQSvI50blnnfx+JsU8Bf6H1INtMbKVQeWgzJy2cucraoM4mUt78un6T8tZ6e2MULopHWOfCUY2QzxsG0xI2vt7cKQE6tYE/Lp1ZB36JC7FsoEJVOA2B++YDI9pzF1PFgBlNYKNTEe2rr/ZJpptijZ7wwsFgu1qxH2sNoUV0lJpH2wNO8kKqXbmyGtaPeVi8cdj/JPDdmRFy6AOVVUiZkQkyoQ7p6sgQzisEPnxI/fN644++LAZvZYs9PARh6pS5dDcfRJ5ZXmp0DsNj0E3ujjnLb/FJ6bicNwFHLRxS2PY/j4rXrlceFW/9gk5SYfl6CfvQJ7manJyEo0XM/DQnsI2Uoxbp9BzXWUwTJEJe3yJiQnvjj3gNHifc4GR5wL/ze344vuan8bzuI2Gr3XIotkYYNggb6A8DE8U5G2fUzS+4mlDyG/Gxb2AlPkhWwu4S4c3Yk5Gt6dfpfE5yhRKAYqHbWid5PatSw/LUxVr+nPend75fe79LNiwIlBCAykO31263mGnaQa1nWIJM4ITpS/8l5fcSoLpSRcOL4JxFvcflgpa42JIUA18mCjl705KWggIKPedMvSCCjhZR6RwwHqbH//IRjdelLj5S3gQWOrnI3xV4ka3m39oOd/whsuZGO1yvn6Q=
+    - PROJECT_NAME=nclsx
+    - GITHUB_REPO_NAME=jianlins/ncls
+    - CONDA_PKG_NAME_PY=nclsx
+    - PYPI_LOGIN=jianlins
 
-# functionality is tested in the pyranges package
-script: cd ~/; python -c 'import ncls; print(ncls.__version__)'
+
+####
+# EVERYTHING BELOW THIS LINE WILL BE COPIED INTO OTHER YMLs
+####
+# v1.0
+
+# Do not use Travis Python to save some time.
+language: generic
+os:
+  - linux
+  - osx
+dist: trusty
+sudo: false
+
+matrix:
+  # We only test on Linux with one specific Python version, unless we make a release. All
+  # other cases are allowed to fail and will exit early. With the fast_finish option,
+  # travis will send a status update to github as soon as the non-allowed-to-fail has
+  # finished. This speeds up testing in PRs.
+  #
+  # This is not ideal. It would be better to run just one item from the build matrix when
+  # not preparing a release. This is not possible on Travis. There are several tickets on
+  # travis-ci related to this limitation.
+  #
+  #    https://github.com/travis-ci/travis-ci/issues/7451
+  #    https://github.com/travis-ci/travis-ci/issues/7149
+  #    https://github.com/travis-ci/travis-ci/issues/2778
+  #    ...
+  fast_finish: true
+  allow_failures:
+  - os: osx
+
+
+cache:
+  directories:
+    - $HOME/download # Sufficient to add miniconda.sh to TRAVIS cache.
+    - $HOME/miniconda # Add the installation to TRAVIS cache.
+
+before_cache:
+- if ! [[ $TRAVIS_TAG ]]; then rm -rf $HOME/miniconda/conda-bld; fi
+- rm -rf $HOME/miniconda/locks $HOME/miniconda/pkgs $HOME/miniconda/var $HOME/miniconda/conda-meta/history
+- pip uninstall -y cardboardlint # Cardboardlint always installs even if no changes are made.
+
+branches:
+  only:
+    - master
+    - /^[0-9]+\.[0-9]+(\.[0-9]+)?([ab][0-9]+)?$/
+
+before_install:
+- if ! [[ $TRAVIS_TAG || $TRAVIS_OS_NAME == "linux" && $MYCONDAPY == "3.6" ]]; then exit 0; fi
+# Get miniconda. Take the right version, so re-installing python is hopefully not needed.
+- if test -e $HOME/miniconda/bin; then
+    echo "miniconda already installed.";
+  else
+    echo "Installing miniconda.";
+    rm -rf $HOME/miniconda;
+    mkdir -p $HOME/download;
+    if [[ -d $HOME/download/miniconda.sh ]]; then rm -rf $HOME/download/miniconda.sh; fi;
+    if [ "${ }" = "2.7" ]; then
+      if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
+        wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O $HOME/download/miniconda.sh;
+      else
+        wget https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh -O $HOME/download/miniconda.sh;
+      fi;
+    else
+      if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
+        wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O $HOME/download/miniconda.sh;
+      else
+        wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O $HOME/download/miniconda.sh;
+      fi;
+    fi;
+    bash $HOME/download/miniconda.sh -b -p $HOME/miniconda;
+  fi
+
+
+install:
+- source $HOME/miniconda/bin/activate
+- hash -r
+# Configure conda and get a few essentials
+- conda config --set always_yes yes
+- conda config --add channels theochem
+- conda install -q conda conda-build conda-verify
+
+# Set the version info from the git tag
+- git fetch origin --tags &&
+  export PROJECT_VERSION=$(python tools/gitversion.py) &&
+  python tools/gitversion.py python > ${PROJECT_NAME}/version.py;
+
+# Get a list of all build and runtime dependencies.
+# This should become easier, without the copy to conda.recipe.ugly.
+- conda render -f tools/conda.recipe/rendered.yaml tools/conda.recipe
+- CONDA_DEPENDENCIES=$(python -c "from yaml import load;
+    req1 = load(open('tools/conda.recipe/rendered.yaml'))['requirements'];
+    deps = req1['build'] + req1['run'] + req1['host'];
+    print(' '.join(set(dep.split()[0] for dep in deps)))")
+
+# Get the right python version for building. This only does something for 3.5.
+# Install extra package needed to make things work. Most things can be listed as
+# dependencies on meta.yaml and setup.py, unless setup.py already imports them.
+# Install conda tools for packaging and uploading
+- conda install -q python=${MYCONDAPY} anaconda-client numpy setuptools cython
+- if ! [[ $TRAVIS_TAG ]]; then
+    conda install -q ${CONDA_DEPENDENCIES};
+    pip install --upgrade pylint codecov coverage pycodestyle pydocstyle;
+  fi
+# Show conda info for debugging
+- conda info -a
+
+# Install the latest cardboardlinter
+- if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+    pip install --upgrade git+https://github.com/theochem/cardboardlint.git@master#egg=cardboardlint;
+  fi
+
+script:
+# Static linting
+# --------------
+- if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+    cardboardlinter --refspec $TRAVIS_BRANCH -f static;
+  fi
+
+# Unit tests and dynamic linting
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- if [[ $TRAVIS_TAG ]]; then
+    conda build -q tools/conda.recipe;
+  else
+    python setup.py build_ext -i --define CYTHON_TRACE_NOGIL &&
+    nosetests ${PROJECT_NAME}
+         -v --detailed-errors --with-coverage --cover-package=${PROJECT_NAME}
+         --cover-tests --cover-inclusive --cover-branches &&
+    coverage xml -i &&
+
+    if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+       cardboardlinter --refspec $TRAVIS_BRANCH -f 'dynamic';
+    fi
+  fi
+
+# Make CPP and PY source package for github deployment
+- if [[ $TRAVIS_TAG ]]; then
+    python setup.py sdist;
+  fi
+
+# Some other stuff
+# ----------------
+
+# Compile documentation
+- if [[ -e doc ]]; then
+    (cd doc; make html);
+  fi
+
+after_success:
+# Upload the coverage analysis
+- codecov -f coverage.xml
+
+before_deploy:
+# Try to set some env vars to configure deployment.
+# Please keep the following lines. They will be used again as soon as it is supported on
+# travis. See https://github.com/travis-ci/dpl/issues/613
+#- export IS_PRERELEASE=$(python -c 'import os; tt=os.environ["TRAVIS_TAG"]; print("true" if ("a" in tt or "b" in tt) else "false")')
+#- echo ${IS_PRERELEASE}
+- export ANACONDA_LABEL=$(python -c 'import os; tt=os.environ["TRAVIS_TAG"]; print("dev" if ("a" in tt) else ("test" if "b" in tt else "main"))')
+- echo ${ANACONDA_LABEL}
+
+# In deployment, the env var TRAVIS_TAG contains the name of the current version, if any.
+deploy:
+- provider: releases
+  skip_cleanup: true
+  api_key: ${GITHUB_TOKEN}
+  file: dist/${PROJECT_NAME}-${TRAVIS_TAG}.tar.gz
+  on:
+    repo: ${GITHUB_REPO_NAME}
+    tags: true
+    condition: "$MYCONDAPY == 3.6 && $TRAVIS_OS_NAME == linux && $TRAVIS_TAG == *[ab]*"
+  prerelease: true
+
+- provider: releases
+  skip_cleanup: true
+  api_key: ${GITHUB_TOKEN}
+  file: dist/${PROJECT_NAME}-${TRAVIS_TAG}.tar.gz
+  on:
+    repo: ${GITHUB_REPO_NAME}
+    tags: true
+    condition: "$MYCONDAPY == 3.6 && $TRAVIS_OS_NAME == linux && $TRAVIS_TAG != *[ab]*"
+  prerelease: false
+
+- provider: script
+  skip_cleanup: true
+  script: anaconda -t $ANACONDA_TOKEN upload --force -l ${ANACONDA_LABEL} ${HOME}/miniconda/conda-bld/*/${PROJECT_NAME}-*.tar.bz2
+  on:
+    repo: ${GITHUB_REPO_NAME}
+    tags: true
+
+- provider: pypi
+  skip_cleanup: true
+  user: ${PYPI_LOGIN}
+  password: ${PYPI_PASSWD}
+  on:
+    repo: ${GITHUB_REPO_NAME}
+    tags: true
+    condition: "$TRAVIS_TAG != *[ab]* && $MYCONDAPY == 3.6 && $TRAVIS_OS_NAME == linux"
+
+- provider: pages
+  skip_cleanup: true
+  github_token: ${GITHUB_TOKEN}
+  project_name: ${PROJECT_NAME}
+  local_dir: doc/_build/html
+  on:
+    repo: ${GITHUB_REPO_NAME}
+    condition: "-e doc && $TRAVIS_TAG != *[ab]* && $MYCONDAPY == 3.6 && $TRAVIS_OS_NAME == linux"
+    tags: true

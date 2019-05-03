@@ -1,7 +1,6 @@
 env:
   matrix:
   - MYCONDAPY=3.6
-  - MYCONDAPY=3.7
   global:
 #   travis encrypt
 #   PYPI_PASSWD=xxxx
@@ -217,3 +216,6 @@ deploy:
     repo: ${GITHUB_REPO_NAME}
     condition: "-e doc && $TRAVIS_TAG != *[ab]* && $MYCONDAPY == 3.6 && $TRAVIS_OS_NAME == linux"
     tags: true
+
+after_failure:
+  - cat *.failure.txt

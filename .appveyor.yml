@@ -60,7 +60,7 @@ build: false
 
 test_script:
   # Build the package
-  - python setup.py install
+  - "%CMD_IN_ENV% conda build tools/conda.recipe"
 
   # Install the package
   - conda install --use-local %PROJECT_NAME%

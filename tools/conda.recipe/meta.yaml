@@ -29,7 +29,7 @@ test:
     - nose
   commands:
     - conda inspect linkages nclsx
-    - nosetests -v --detailed-errors nclsx
+#    - nosetests -v --detailed-errors nclsx
 
 about:
   description: Demo python+cython project

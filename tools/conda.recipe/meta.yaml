@@ -26,9 +26,12 @@ requirements:
 test:
   requires:
     - python
-    - nose
-  commands:
-    - conda inspect linkages nclsx
+    - numpy
+    - cython
+  imports:
+    - nclsx
+#  commands:
+#    - conda inspect linkages nclsx
 #    - nosetests -v --detailed-errors nclsx
 
 about:

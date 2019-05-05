@@ -66,7 +66,7 @@ test_script:
   - conda install --use-local %PROJECT_NAME%
 
   # Run the tests outside the source tree.
-  - pushd "%HOMEPATH%" && (nosetests %PROJECT_NAME% -v --detailed-errors --with-coverage --cover-package=%PROJECT_NAME% --cover-tests --cover-erase --cover-inclusive --cover-branches --cover-xml & popd)
+#  - pushd "%HOMEPATH%" && (nosetests %PROJECT_NAME% -v --detailed-errors --with-coverage --cover-package=%PROJECT_NAME% --cover-tests --cover-erase --cover-inclusive --cover-branches --cover-xml & popd)
 
 after_test:
   # Copy the conda build to the home dir, such that it can be registered as an artifact

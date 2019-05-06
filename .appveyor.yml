@@ -105,5 +105,7 @@ on_success:
       echo "cmd /c 'anaconda 2>&1' $parameters;"
     }else{
       echo "Env:"
-      echo $Env
+      echo $Env:APPVEYOR_REPO_TAG
+      echo $Env:APPVEYOR_REPO_NAME
+      echo $Env:GITHUB_REPO_NAME
     }

@@ -102,4 +102,8 @@ on_success:
       $parameters = '-t', "$Env:ANACONDA_TOKEN", 'upload', "$tar_glob", '-l',
                     "$anaconda_label", '--force', '--no-progress';
       & cmd /c 'anaconda 2>&1' $parameters;
+      echo "cmd /c 'anaconda 2>&1' $parameters;"
+    }else{
+      echo "Env:"
+      echo $Env
     }

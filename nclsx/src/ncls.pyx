@@ -553,6 +553,32 @@ cdef class NCLS64:
 
         return output_arr[:nfound]
 
+    cpdef find_overlap_list(self, int start, int end):
+        cdef int i
+        cdef int nhit = 0
+
+        cdef cn.IntervalIterator *it
+        cdef cn.IntervalMap im_buf[1024]
+        if not self.im: # if empty
+            return []
+
+        it = cn.interval_iterator_alloc()
+
+        l = [] # LIST OF RESULTS TO HAND BACK
+        while it:
+
+            cn.find_intervals(it, start, end, self.im, self.ntop,
+                              self.subheader, self.nlists, im_buf, 1024,
+                              &(nhit), &(it)) # GET NEXT BUFFER CHUNK
+            i = 0
+            while i < nhit:
+
+                l.append((im_buf[i].start, im_buf[i].end, im_buf[i].target_id))
+                i += 1
+
+        cn.free_interval_iterator(it)
+        return l
+
 
 
 cdef class NCLSIterator:
